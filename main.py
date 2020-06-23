@@ -19,15 +19,7 @@ def get_table_download_link(df, check, list_column):
     return href
 
 
-def main():
-    st.title('Data Science pre process')
-    st.header('This is a project guided by Aceleradev DataScience')
-    st.subheader('Week 2')
-    st.text('My name is Felipe and let\'s go')
-    st.image('background3.jpg', width=700)
-
-    st.subheader('File upload')
-    file = st.file_uploader('Upload file', type='csv')
+def datasciencepage(file):
     if file is not None:
         df = pd.read_csv(file)
         na_values = pd.DataFrame({'columns': df.columns,
@@ -41,7 +33,7 @@ def main():
         st.markdown('**Count of data types:**')
         st.table(na_values.types.value_counts())
 
-        radio = st.radio('Select a option', ('See % of N/A values', 'Show data', 'Complete N/A', 'Correlation'))
+        radio = st.sidebar.radio('Select a option', ('See % of N/A values', 'Show data', 'Complete N/A', 'Correlation'))
         if radio == 'See % of N/A values':
             st.table(na_values[na_values['perceptual_na'] != 0][['types', 'perceptual_na']])
         if radio == 'Show data':
@@ -81,7 +73,8 @@ def main():
             st.write(df.corr(), height=1000)
             y = st.text_input('Write the name of the feature that you want to see the distribution', df.columns[-1])
             st.write('The current is', y)
-            multi = st.multiselect('Select the columns that you want to see the describe:', list(df.select_dtypes(np.number).columns))
+            multi = st.multiselect('Select the columns that you want to see the describe:',
+                                   list(df.select_dtypes(np.number).columns))
             if multi:
                 st.write(df.describe()[list(multi)])
 
@@ -90,6 +83,22 @@ def main():
                 st.pyplot()
             except:
                 st.markdown('I didn\'t find the distribution....')
+
+
+def main():
+    mode = st.sidebar.selectbox("Felipe Wu", ["Home", "Data Science"])
+
+    if mode == 'Home':
+        st.title('Data Science pre process')
+        st.header('Project guided by Aceleradev and powered by Articfox')
+        st.subheader('Week 2')
+        st.text('My name is Felipe and let\'s go')
+        st.image('background3.jpg', width=700)
+
+    if mode == 'Data Science':
+        st.subheader('File upload')
+        file = st.file_uploader('Upload file', type='csv')
+        datasciencepage(file)
 
 
 if __name__ == '__main__':
