@@ -18,7 +18,7 @@ showWarningOnDirectExecution = true
 
 # Level of logging: 'error', 'warning', 'info', or 'debug'.
 # Default: 'info'
-logLevel = "debug"
+logLevel = "info"
 
 
 [client]
@@ -60,13 +60,9 @@ folderWatchBlacklist = []
 # Default: "auto"
 fileWatcherType = "auto"
 
-# Symmetric key used to produce signed cookies. If deploying on multiple replicas, this should be set to the same value across all replicas to ensure they all share the same secret.
-# Default: randomly generated secret key.
-cookieSecret = "5698d7c3f7fb29c622d920bb0bc2f0a7465bf6baafc2a602cb75c5c80c27c5b7"
-
 # If false, will attempt to open a browser window on start.
 # Default: false unless (1) we are on a Linux box where DISPLAY is unset, or (2) server.liveSave is set.
-headless = true
+headless = false
 
 # Immediately share the app in such a way that enables live monitoring, and post-run analysis.
 # Default: false
@@ -88,43 +84,35 @@ port = 8501
 # Default: ""
 baseUrlPath = ""
 
-# Enables support for Cross-Origin Request Sharing (CORS) protection, for added security.
+# Enables support for Cross-Origin Request Sharing, for added security.
 # Default: true
-enableCORS = false
-
-# Enables support for Cross-Site Request Forgery (XSRF) protection, for added security.
-# Default: true
-enableXsrfProtection = true
+enableCORS = true
 
 # Max size, in megabytes, for files uploaded with the file_uploader.
 # Default: 200
 maxUploadSize = 200
 
-# Enables support for websocket compression.
-# Default: true
-enableWebsocketCompression = true
-
 
 [browser]
 
 # Internet address where users should point their browsers in order to connect to the app. Can be IP address or DNS name and path.
-# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser - Tell the browser where to connect to the server when in liveSave mode.
+# This is used to: - Set the correct URL for CORS purposes. - Show the URL on the terminal - Open the browser - Tell the browser where to connect to the server when in liveSave mode.
 # Default: 'localhost'
-serverAddress = "felipesportfolio.articfox.com.br"
+serverAddress = "localhost"
 
 # Whether to send usage statistics to Streamlit.
 # Default: true
 gatherUsageStats = true
 
 # Port where users should point their browsers in order to connect to the app.
-# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser - Tell the browser where to connect to the server when in liveSave mode.
+# This is used to: - Set the correct URL for CORS purposes. - Show the URL on the terminal - Open the browser - Tell the browser where to connect to the server when in liveSave mode.
 # Default: whatever value is set in server.port.
-serverPort = 8501 
+serverPort = 8501
 
 
 [mapbox]
 
-# Configure Streamlit to use a custom Mapbox token for elements like st.deck_gl_chart and st.map. To get a token for yourself, create an account at https://mapbox.com. It's free (for moderate usage levels)!
+# Configure Streamlit to use a custom Mapbox token for elements like st.deck_gl_chart and st.map. If you don't do this you'll be using Streamlit's own token, which has limitations and is not guaranteed to always work. To get a token for yourself, create an account at https://mapbox.com. It's free! (for moderate usage levels)
 # Default: ""
 token = ""
 
