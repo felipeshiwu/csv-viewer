@@ -131,3 +131,6 @@ dmypy.json
 # notebooks
 .idea/
 .ipynb_checkpoints/
+
+# streamli
+.streamlit/
