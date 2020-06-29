@@ -12,5 +12,10 @@ The development of the project used the following main tools:
   - Seaborn
   - Numpy
   
+### Run
+To run the project, just paste the following code to your terminal...
+```bash
+streamlit run main.py
+```
 ## About me
 Autor - Felipe Shi Iu Wu | Contact: [felipeshiwu@gmail.com](mailto:felipeshiwu@gmail.com) & [LinkedIn](https://www.linkedin.com/in/felipeshiwu/)
