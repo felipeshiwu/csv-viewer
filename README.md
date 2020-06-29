@@ -10,6 +10,7 @@ The development of the project used the following main tools:
   - Streamlit
   - Pandas
   - Seaborn
+  - Altair
   - Numpy
   
 ### Run
